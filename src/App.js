@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-
+import React from "react";
+ 
+const App = () => {
+    const options = ['One', 'Two', 'Three', 'Four', 'Five'];
+    const onOptionChangeHandler = (event) => {
+        console.log("User Selected Value - ", event.target.value)
+    }
+    return (
+        <>
+            <center>
+                <select onChange={onOptionChangeHandler}>
+ 
+                    <option>Please choose one option</option>
+                    {options.map((option, index) => {
+                        return <option key={index} >
+                            {option}
+                        </option>
+                    })}
+                </select>
+            </center>
+        </>
+    );
+};
+ 
 export default App;
